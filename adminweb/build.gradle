@@ -1,0 +1,21 @@
+group 'com.agricultural'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task copyJars(type: Copy) {
+    from configurations.compile
+    into 'src/main/webapp/WEB-INF/lib' // 目标文件
+}
