@@ -1,3 +1,4 @@
 rootProject.name = 'AgriculturalProject'
 include 'adminweb'
+include 'webservice'
 
