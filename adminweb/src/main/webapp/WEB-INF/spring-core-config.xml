@@ -76,7 +76,7 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
     <!--AOP配置-->
     <aop:config proxy-target-class="true">
-        <aop:pointcut id="productServiceMethods" expression="execution(* com.maxrocky.gundam.service..*.*(..))" />
+        <aop:pointcut id="productServiceMethods" expression="execution(* com.agricultural.service..*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods" />
     </aop:config>
 

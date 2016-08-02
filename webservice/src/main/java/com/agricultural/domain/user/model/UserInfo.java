@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 /**
  * 用户信息
- * <p>
  * Created by jiazefeng on 2016/08/01.
  */
 @Entity
@@ -40,6 +39,10 @@ public class UserInfo extends BaseVO {
      * 状态
      */
     private int uState;
+    /**
+     * 用户头像
+     */
+    private String uHendImg;
 
     @Id
     @Column(name = "USER_ID", nullable = false, insertable = true, updatable = true, length = 32)
@@ -92,7 +95,7 @@ public class UserInfo extends BaseVO {
     }
 
     @Basic
-    @Column(name = "USER_NAME", nullable = true, insertable = true, updatable = true, length = 500)
+    @Column(name = "USER_PersonalProfile", nullable = true, insertable = true, updatable = true, length = 500)
     public String getPersonalProfile() {
         return personalProfile;
     }
@@ -109,5 +112,15 @@ public class UserInfo extends BaseVO {
 
     public void setuState(int uState) {
         this.uState = uState;
+    }
+
+    @Basic
+    @Column(name = "USER_headImg", nullable = true, insertable = true, updatable = true, length = 64)
+    public String getuHendImg() {
+        return uHendImg;
+    }
+
+    public void setuHendImg(String uHendImg) {
+        this.uHendImg = uHendImg;
     }
 }
