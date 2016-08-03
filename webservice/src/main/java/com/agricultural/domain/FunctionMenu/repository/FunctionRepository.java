@@ -20,5 +20,20 @@ public interface FunctionRepository extends BaseRepository<FunctionMenu>{
      * 检索全部功能
      * @return
      */
+    public List<FunctionMenu> searchFunction();
+    /**
+     * 检索全部功能列表
+     * @return
+     */
     public List<FunctionMenu> searchFunctionList();
+
+    /**
+     * 根据功能检索对应的功能信息
+     * @param mId
+     * @return
+     */
+    public FunctionMenu searchFunctionMenuByMid(String mId);
+
+    public int searchTotal();
+
 }

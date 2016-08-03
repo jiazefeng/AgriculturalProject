@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "FUNCTION_MENU")
-public class FunctionMenu extends BaseVO implements Comparable<FunctionMenu>{
+public class FunctionMenu extends BaseVO{
     /**
      * 菜单ID
      */
@@ -139,14 +139,4 @@ public class FunctionMenu extends BaseVO implements Comparable<FunctionMenu>{
         this.mState = mState;
     }
 
-    @Override
-    public int compareTo(FunctionMenu o) {
-        if (null == o) {
-            return -1;
-        }
-        if (this.mId != o.mId) {
-            return -1;
-        }
-        return 1;
-    }
 }
