@@ -92,4 +92,15 @@ public class FunctionServiceImpl implements FunctionService {
         result.addAttribute("menuList",functionMenuDTOList);
         return new SuccessApiResult(result);
     }
+
+    @Override
+    public ApiResult searchFunction(String mId) {
+        FunctionMenu functionMenu = functionRepository.searchFunctionMenuByMid(mId);
+        return new SuccessApiResult(functionMenu);
+    }
+
+    @Override
+    public ApiResult editFunction(FunctionMenuDTO functionMenuDTO) {
+        return null;
+    }
 }

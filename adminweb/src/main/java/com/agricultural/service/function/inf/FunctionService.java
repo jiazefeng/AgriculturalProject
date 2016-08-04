@@ -23,5 +23,26 @@ public interface FunctionService {
      */
     public ApiResult searFunction();
 
-   public  ApiResult searFunctionList();
+    /**
+     * 初始化检索功能列表
+     *
+     * @return
+     */
+    public ApiResult searFunctionList();
+
+    /**
+     * 根据功能id 检索功能信息
+     *
+     * @param mId
+     * @return
+     */
+    public ApiResult searchFunction(String mId);
+
+    /**
+     * 编辑功能
+     *
+     * @param functionMenuDTO
+     * @return
+     */
+    public ApiResult editFunction(FunctionMenuDTO functionMenuDTO);
 }
