@@ -5,10 +5,7 @@ import com.agricultural.domain.FunctionMenu.dto.FunctionMenuDTO;
 import com.agricultural.domain.FunctionMenu.model.FunctionMenu;
 import com.agricultural.service.function.inf.FunctionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by jiazefeng on 2016/08/02.
@@ -48,5 +45,22 @@ public class FunctionContruller {
     @RequestMapping(value = "/searFunctionList", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public ApiResult searFunctionList() {
         return functionService.searFunctionList();
+    }
+
+    /**
+     * 根据id查询功能信息
+     */
+    @RequestMapping(value = "/searchFunctionById/id", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
+    public ApiResult searchFunctionById(@PathVariable String id){
+        return functionService.searchFunction(id);
+    }
+    /**
+     * 编辑功能
+     *
+     * @return
+     */
+    @RequestMapping(value = "/editFunction", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
+    public ApiResult editFunction(@RequestBody FunctionMenuDTO functionMenuDTO) {
+        return functionService.editFunction(functionMenuDTO);
     }
 }
