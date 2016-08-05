@@ -1,9 +1,14 @@
 package com.agricultural.domain.FunctionMenu.dto;
 
+import com.agricultural.domain.FunctionMenu.model.FunctionMenu;
+import com.agricultural.page.PageInfoTools;
+
+import java.util.List;
+
 /**
- * Created by maxrocky on 2016/08/03.
+ * Created by jiazefeng on 2016/08/03.
  */
-public class FunctionMenuDTO {
+public class FunctionMenuDTO extends PageInfoTools {
     /**
      * 菜单ID
      */
@@ -23,16 +28,23 @@ public class FunctionMenuDTO {
     /**
      * 所在层级
      */
-    private String mLayer;
+    private int mLayer;
     /**
      * 排序
      */
-    private String mOrder;
+    private int mOrder;
     /**
      * 父级菜单Id
      */
     private String mParentId;
+    /**
+     * 父级菜单名称
+     */
     private String mParentName;
+    /**
+     * 所有子菜单
+     */
+    private List<FunctionMenu> allSubmenuList;
 
     public String getmId() {
         return mId;
@@ -66,19 +78,19 @@ public class FunctionMenuDTO {
         this.mIfNavigationNode = mIfNavigationNode;
     }
 
-    public String getmLayer() {
+    public int getmLayer() {
         return mLayer;
     }
 
-    public void setmLayer(String mLayer) {
+    public void setmLayer(int mLayer) {
         this.mLayer = mLayer;
     }
 
-    public String getmOrder() {
+    public int getmOrder() {
         return mOrder;
     }
 
-    public void setmOrder(String mOrder) {
+    public void setmOrder(int mOrder) {
         this.mOrder = mOrder;
     }
 
@@ -96,5 +108,13 @@ public class FunctionMenuDTO {
 
     public void setmParentName(String mParentName) {
         this.mParentName = mParentName;
+    }
+
+    public List<FunctionMenu> getAllSubmenuList() {
+        return allSubmenuList;
+    }
+
+    public void setAllSubmenuList(List<FunctionMenu> allSubmenuList) {
+        this.allSubmenuList = allSubmenuList;
     }
 }

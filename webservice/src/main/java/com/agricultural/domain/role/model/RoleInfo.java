@@ -6,14 +6,23 @@ import javax.persistence.*;
 
 /**
  * 角色信息
- *
+ * <p>
  * Created by jiazefeng on 2016/08/01.
  */
 @Entity
 @Table(name = "role_info")
 public class RoleInfo extends BaseVO {
+    /**
+     * 角色ID
+     */
     private String rId;
+    /**
+     * 角色名称
+     */
     private String rName;
+    /**
+     * 角色启用状态：0：停用；1：启用
+     */
     private int rState;
 
     @Id
