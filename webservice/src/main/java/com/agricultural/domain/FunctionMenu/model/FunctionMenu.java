@@ -31,11 +31,11 @@ public class FunctionMenu extends BaseVO{
     /**
      * 所在层级
      */
-    private String mLayer;
+    private int mLayer;
     /**
      * 排序
      */
-    private String mOrder;
+    private int mOrder;
     /**
      * 父级菜单Id
      */
@@ -80,7 +80,7 @@ public class FunctionMenu extends BaseVO{
     }
 
     @Basic
-    @Column(name = "MENU_IFNAVNODE", nullable = true, insertable = true, updatable = true, length = 64)
+    @Column(name = "MENU_IFNAVNODE", nullable = true, insertable = true, updatable = true, length = 2)
     public int getmIfNavigationNode() {
         return mIfNavigationNode;
     }
@@ -90,22 +90,22 @@ public class FunctionMenu extends BaseVO{
     }
 
     @Basic
-    @Column(name = "MENU_LAYER", nullable = true, insertable = true, updatable = true, length = 64)
-    public String getmLayer() {
+    @Column(name = "MENU_LAYER", nullable = true, insertable = true, updatable = true, length = 2)
+    public int getmLayer() {
         return mLayer;
     }
 
-    public void setmLayer(String mLayer) {
+    public void setmLayer(int mLayer) {
         this.mLayer = mLayer;
     }
 
     @Basic
-    @Column(name = "MENU_ORDER", nullable = true, insertable = true, updatable = true, length = 64)
-    public String getmOrder() {
+    @Column(name = "MENU_ORDER", nullable = true, insertable = true, updatable = true, length = 2)
+    public int getmOrder() {
         return mOrder;
     }
 
-    public void setmOrder(String mOrder) {
+    public void setmOrder(int mOrder) {
         this.mOrder = mOrder;
     }
 

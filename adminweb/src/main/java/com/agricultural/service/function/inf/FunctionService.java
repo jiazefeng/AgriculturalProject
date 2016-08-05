@@ -4,8 +4,10 @@ import com.agricultural.common.result.ApiResult;
 import com.agricultural.domain.FunctionMenu.dto.FunctionMenuDTO;
 import com.agricultural.domain.FunctionMenu.model.FunctionMenu;
 
+import java.util.List;
+
 /**
- * Created by maxrocky on 2016/08/02.
+ * Created by jiazefeng on 2016/08/02.
  */
 public interface FunctionService {
     /**
@@ -45,4 +47,27 @@ public interface FunctionService {
      * @return
      */
     public ApiResult editFunction(FunctionMenuDTO functionMenuDTO);
+
+    /**
+     * 按条件检索功能信息列表
+     *
+     * @param functionMenuDTO
+     * @return
+     */
+    public ApiResult searFunctionListByItem(FunctionMenuDTO functionMenuDTO);
+
+    /**
+     * 删除功能信息
+     *
+     * @param id
+     * @return
+     */
+    public ApiResult deleteFunction(String id);
+
+    /**
+     * 检索功能菜单
+     *
+     * @return
+     */
+    public List<FunctionMenuDTO> searchFunctionMenu();
 }
