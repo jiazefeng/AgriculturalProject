@@ -70,8 +70,8 @@ public class RoleController {
      *
      * @return
      */
-@RequestMapping(value = "/searchRoleInfo" ,produces = "application/json;UTF-8", method = RequestMethod.GET)
+    @RequestMapping(value = "/searchRoleInfo", produces = "application/json;UTF-8", method = RequestMethod.GET)
     public ApiResult searchRoleInfo() {
         return roleInfoService.searchRoleInfo();
-}
+    }
 }
