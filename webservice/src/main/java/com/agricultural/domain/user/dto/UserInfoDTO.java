@@ -3,13 +3,17 @@ package com.agricultural.domain.user.dto;
 import com.agricultural.hibernate.BaseVO;
 
 /**
- * Created by maxrocky on 2016/08/05.
+ * Created by jiazefeng on 2016/08/05.
  */
 public class UserInfoDTO extends BaseVO {
     /**
      * 用户ID
      */
     private String uId;
+    /**
+     * 角色ID
+     */
+    private String uroleId;
     /**
      * 用户名
      */
@@ -101,5 +105,13 @@ public class UserInfoDTO extends BaseVO {
 
     public void setuHendImg(String uHendImg) {
         this.uHendImg = uHendImg;
+    }
+
+    public String getUroleId() {
+        return uroleId;
+    }
+
+    public void setUroleId(String uroleId) {
+        this.uroleId = uroleId;
     }
 }
