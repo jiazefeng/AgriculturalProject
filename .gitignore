@@ -7,4 +7,5 @@ out/
 *.ear
 *.iml
 .idea/
-build/
+adminweb/build/
+webservice/build/
