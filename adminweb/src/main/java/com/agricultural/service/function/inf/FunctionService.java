@@ -70,4 +70,20 @@ public interface FunctionService {
      * @return
      */
     public List<FunctionMenuDTO> searchFunctionMenu();
+
+    /**
+     * 获取一级菜单
+     *
+     * @param userId
+     * @return
+     */
+    public List<FunctionMenu> searchFunctionListByUserId(String userId);
+
+    /**
+     * 获取二级菜单
+     *
+     * @param userId
+     * @return
+     */
+    public List<FunctionMenu> searchTwoLevelMenuByUserId(String userId, String parentId);
 }

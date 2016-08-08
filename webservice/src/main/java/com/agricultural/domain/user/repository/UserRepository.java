@@ -10,6 +10,14 @@ import java.util.List;
  */
 public interface UserRepository extends BaseRepository<UserInfo> {
     /**
+     * 用户登录
+     *
+     * @param userInfo
+     * @return
+     */
+    public UserInfo login(UserInfo userInfo);
+
+    /**
      * 添加用户
      *
      * @param userInfo
@@ -27,15 +35,18 @@ public interface UserRepository extends BaseRepository<UserInfo> {
 
     /**
      * 查询用户列表
+     *
      * @return
      */
     public List<UserInfo> searchUserList();
+
     /**
      * 查询总条数
      */
     public int searchUserCount();
+
     /**
      * 根据用户id查询
      */
-    public  UserInfo searchUserInfoByUserId(String userId);
+    public UserInfo searchUserInfoByUserId(String userId);
 }

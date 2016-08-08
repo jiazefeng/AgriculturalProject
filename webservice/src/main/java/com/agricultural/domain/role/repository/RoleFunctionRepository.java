@@ -1,5 +1,6 @@
 package com.agricultural.domain.role.repository;
 
+import com.agricultural.domain.FunctionMenu.model.FunctionMenu;
 import com.agricultural.domain.role.model.RoleFunction;
 import com.agricultural.hibernate.BaseRepository;
 
@@ -25,5 +26,21 @@ public interface RoleFunctionRepository extends BaseRepository<RoleFunction> {
      */
     public List<RoleFunction> roleFunctionList(String roleId);
 
+    /**
+     * 根据功能Id 检索对应的权限
+     *
+     * @param fId
+     * @return
+     */
+    public List<RoleFunction> seachRoleFunctionListByFid(String fId);
+
+    /**
+     * 删除权限列表
+     *
+     * @param roleFunctionList
+     * @return
+     */
     public boolean deleteRoleFunction(List<RoleFunction> roleFunctionList);
+
+
 }
