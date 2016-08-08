@@ -90,6 +90,29 @@ public class FunctionRepositoryImpl extends BaseRepositoryImpl<FunctionMenu> imp
     }
 
     @Override
+    public List<FunctionMenu> searchMainMenu(String id) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "FROM FunctionMenu as m where m.mState=? and m.mIfNavigationNode=? and mId=?";
+        params.add(1);
+        params.add(1);
+        params.add(id);
+        List<FunctionMenu> functionMenuList = this.findByQueryList(hql,params);
+        return functionMenuList;
+    }
+
+    @Override
+    public List<FunctionMenu> searchTwoLevelMenuById(String pId,String id) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "FROM FunctionMenu as m where m.mState=? and m.mIfNavigationNode=? and m.mParentId=? and m.mId=?";
+        params.add(1);
+        params.add(0);
+        params.add(pId);
+        params.add(id);
+        List<FunctionMenu> functionMenuList = this.findByQueryList(hql,params);
+        return functionMenuList;
+    }
+
+    @Override
     public List<FunctionMenu> searchTwoLevelMenu(String id) {
         List<Object> params = new ArrayList<Object>();
         String hql = "FROM FunctionMenu as m where m.mState=? and m.mIfNavigationNode=? and m.mParentId=?";
@@ -98,5 +121,37 @@ public class FunctionRepositoryImpl extends BaseRepositoryImpl<FunctionMenu> imp
         params.add(id);
         List<FunctionMenu> functionMenuList = this.findByQueryList(hql,params);
         return functionMenuList;
+    }
+    @Override
+    public List<FunctionMenu> searchFunctionListByUserId(String userId) {
+        if(userId==null || "".equals(userId.trim())){
+            return null;
+        }
+        List<Object> params = new ArrayList<Object>();
+
+        String hql= "FROM FunctionMenu WHERE mLayer= ? and  mId IN  (" +
+                "SELECT DISTINCT rf.funcId FROM  UserRole ur,RoleFunction rf " +
+                " WHERE ur.roleId = rf.roleId" +
+                " AND ur.userId = ?) order by mOrder ASC";
+        params.add(1);
+        params.add(userId);
+        return this.findByQueryList(hql, params);
+    }
+
+    @Override
+    public List<FunctionMenu> searchTwoLevelMenuByUserId(String userId, String parentId) {
+        if(userId==null || "".equals(userId.trim())){
+            return null;
+        }
+        List<Object> params = new ArrayList<Object>();
+
+        String hql= "FROM FunctionMenu WHERE mLayer= ?  and mParentId=? and  mId IN  (" +
+                "SELECT DISTINCT rf.funcId FROM  UserRole ur,RoleFunction rf " +
+                " WHERE ur.roleId = rf.roleId" +
+                " AND ur.userId = ?) order by mOrder ASC";
+        params.add(2);
+        params.add(parentId);
+        params.add(userId);
+        return this.findByQueryList(hql, params);
     }
 }

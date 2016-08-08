@@ -42,6 +42,10 @@ public class UserInfoDTO extends BaseVO {
      * 用户头像
      */
     private String uHendImg;
+    /**
+     * 新密码
+     */
+    private String newPwd;
 
     public String getuId() {
         return uId;
@@ -113,5 +117,13 @@ public class UserInfoDTO extends BaseVO {
 
     public void setUroleId(String uroleId) {
         this.uroleId = uroleId;
+    }
+
+    public String getNewPwd() {
+        return newPwd;
+    }
+
+    public void setNewPwd(String newPwd) {
+        this.newPwd = newPwd;
     }
 }

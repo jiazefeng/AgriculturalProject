@@ -17,6 +17,14 @@ import java.util.List;
 @Repository
 public class UserRepositoryImpl extends BaseRepositoryImpl<UserInfo> implements UserRepository {
     @Override
+    public UserInfo login(UserInfo userInfo) {
+        List<Criterion> sql = new ArrayList<Criterion>();
+        sql.add(Restrictions.eq("uName", userInfo.getuName()));
+        sql.add(Restrictions.eq("uPwd", userInfo.getuPwd()));
+        return this.findUniqueResult(sql);
+    }
+
+    @Override
     public boolean addUser(UserInfo userInfo) {
         this.save(userInfo);
         return true;

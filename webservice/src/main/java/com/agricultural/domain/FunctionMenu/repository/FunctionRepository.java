@@ -72,10 +72,43 @@ public interface FunctionRepository extends BaseRepository<FunctionMenu> {
     public List<FunctionMenu> searchMainMenu();
 
     /**
+     * 根据id检索导航菜单
+     *
+     * @param id
+     * @return
+     */
+    public List<FunctionMenu> searchMainMenu(String id);
+
+    /**
      * 检索所有二级菜单
      *
      * @param id
      * @return
      */
+    public List<FunctionMenu> searchTwoLevelMenuById(String pid, String id);
+
+    /**
+     * 根据父级ID检索所有二级菜单
+     *
+     * @param id
+     * @return
+     */
     public List<FunctionMenu> searchTwoLevelMenu(String id);
+
+    /**
+     * 获取一级菜单
+     *
+     * @param userId
+     * @return
+     */
+    List<FunctionMenu> searchFunctionListByUserId(String userId);
+
+    /**
+     * 获取二级菜单
+     *
+     * @param userId
+     * @param parentId
+     * @return
+     */
+    List<FunctionMenu> searchTwoLevelMenuByUserId(String userId, String parentId);
 }

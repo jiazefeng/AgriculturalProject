@@ -7,6 +7,8 @@ import com.agricultural.domain.FunctionMenu.dto.FunctionMenuDTO;
 import com.agricultural.domain.FunctionMenu.dto.MenuDto;
 import com.agricultural.domain.FunctionMenu.model.FunctionMenu;
 import com.agricultural.domain.FunctionMenu.repository.FunctionRepository;
+import com.agricultural.domain.role.model.RoleFunction;
+import com.agricultural.domain.role.repository.RoleFunctionRepository;
 import com.agricultural.service.function.inf.FunctionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,8 @@ import java.util.List;
 public class FunctionServiceImpl implements FunctionService {
     @Autowired
     private FunctionRepository functionRepository;
-
+    @Autowired
+    private RoleFunctionRepository roleFunctionRepository;
 
     @Override
     public ApiResult addFunction(FunctionMenuDTO functionMenuDTO) {
@@ -177,7 +180,14 @@ public class FunctionServiceImpl implements FunctionService {
         if (functionMenu != null) {
             functionMenu.setmState(0);
             if (functionRepository.editFunction(functionMenu)) {
-                result.addAttribute("success", "删除成功");
+                List<RoleFunction> roleFunctionList = roleFunctionRepository.seachRoleFunctionListByFid(functionMenu.getmId());
+                if(roleFunctionList!= null && roleFunctionList.size()>0){
+                    if(roleFunctionRepository.deleteRoleFunction(roleFunctionList)){
+                        result.addAttribute("success", "删除成功");
+                    }else{
+                        result.addAttribute("error", "删除失败");
+                    }
+                }
             } else {
                 result.addAttribute("error", "删除失败");
             }
@@ -195,15 +205,43 @@ public class FunctionServiceImpl implements FunctionService {
         if (mainMenuList != null && mainMenuList.size() > 0) {
             for (FunctionMenu mainMenu : mainMenuList) {
                 FunctionMenuDTO functionMenuDTO = new FunctionMenuDTO();
-                List<FunctionMenu> twoLevelMenuList =functionRepository.searchTwoLevelMenu(mainMenu.getmId());
+                List<FunctionMenu> twoLevelMenuList = functionRepository.searchTwoLevelMenu(mainMenu.getmId());
                 functionMenuDTO.setmId(mainMenu.getmId());
                 functionMenuDTO.setmName(mainMenu.getmName());
-                if(twoLevelMenuList != null && twoLevelMenuList.size()>0){
+                if (twoLevelMenuList != null && twoLevelMenuList.size() > 0) {
                     functionMenuDTO.setAllSubmenuList(twoLevelMenuList);
                 }
                 functionMenuDTOList.add(functionMenuDTO);
             }
         }
         return functionMenuDTOList;
+    }
+
+    @Override
+    public List<FunctionMenu> searchFunctionListByUserId(String userId) {
+        List<FunctionMenu> functionMenuList = new ArrayList<FunctionMenu>();
+        if(userId==null){
+            return null;
+        }else{
+            functionMenuList = functionRepository.searchFunctionListByUserId(userId);
+            if(functionMenuList!=null && functionMenuList.size()>0){
+                return functionMenuList;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<FunctionMenu> searchTwoLevelMenuByUserId(String userId, String parentId) {
+        List<FunctionMenu> functionMenuList = new ArrayList<FunctionMenu>();
+        if(userId==null){
+            return null;
+        }else{
+            functionMenuList = functionRepository.searchTwoLevelMenuByUserId(userId,parentId);
+            if(functionMenuList!=null && functionMenuList.size()>0){
+                return functionMenuList;
+            }
+        }
+        return null;
     }
 }
