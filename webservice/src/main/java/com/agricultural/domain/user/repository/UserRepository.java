@@ -38,7 +38,7 @@ public interface UserRepository extends BaseRepository<UserInfo> {
      *
      * @return
      */
-    public List<UserInfo> searchUserList();
+    public List<UserInfo> searchUserList(String userId);
 
     /**
      * 查询总条数

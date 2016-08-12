@@ -82,8 +82,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ApiResult queryUserList() {
-        List<UserInfo> userInfoList = userRepository.searchUserList();
+    public ApiResult queryUserList(String userId) {
+        List<UserInfo> userInfoList = userRepository.searchUserList(userId);
         List<UserInfoListDTO> userInfoListDTOList = new ArrayList<UserInfoListDTO>();
         if (userInfoList != null && userInfoList.size() > 0) {
             for (UserInfo userInfo : userInfoList) {

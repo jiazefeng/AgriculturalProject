@@ -37,8 +37,14 @@ public class UserController {
      * 查询列表
      */
     @RequestMapping(value = "/searchUserInfoList", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
-    public ApiResult searchUserInfoList() {
-        return userService.queryUserList();
+    public ApiResult searchUserInfoList(@CookieValue(value = "vestaToken", required = false) String tokenId) {
+        UserInfo userInfos = userService.GetUserInfoByTokenValue(tokenId);
+        ModelMap result = new ModelMap();
+        if (userInfos == null) {
+            result.addAttribute("error", "当前未登录！");
+            return new SuccessApiResult(result);
+        }
+        return userService.queryUserList(userInfos.getuId());
     }
 
     /**
