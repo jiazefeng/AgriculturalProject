@@ -37,10 +37,11 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<UserInfo> implements 
     }
 
     @Override
-    public List<UserInfo> searchUserList() {
+    public List<UserInfo> searchUserList(String userId) {
         List<Object> params = new ArrayList<Object>();
-        String hql = "from UserInfo as u where u.uState = ?";
+        String hql = "from UserInfo as u where u.uState = ? and uId <> ?";
         params.add(1);
+        params.add(userId);
         List<UserInfo> userInfoList = this.findByQueryList(hql,new PageInfoTools(),params);
         return userInfoList;
     }

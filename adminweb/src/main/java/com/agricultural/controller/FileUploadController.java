@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by lizhipeng on 2016/6/6.
+ * Created by jiazefng on 2016/6/6.
  */
 @RestController
 @RequestMapping(value = "/file")

@@ -20,7 +20,7 @@ public interface UserService {
     /**
      * 查询列表
      */
-    public ApiResult queryUserList();
+    public ApiResult queryUserList(String userId);
 
     /**
      * 根据id检索用户信息
