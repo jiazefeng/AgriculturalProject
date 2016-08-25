@@ -15,6 +15,9 @@ public class RanchingType extends BaseVO {
     private String rtName;//类型名称
     private String rtNumber;//类型编号
     private String rtImge;//图片
+    private String rtProfile;//简介
+    private String rtParentId;//
+    private int rtLevel;//级别
     private int rtState;//
 
     @Id
@@ -64,5 +67,32 @@ public class RanchingType extends BaseVO {
 
     public void setRtImge(String rtImge) {
         this.rtImge = rtImge;
+    }
+    @Basic
+    @Column(name = "RANCHING_TYPE_PROFILE", nullable = true, insertable = true, updatable = true, length = 256)
+    public String getRtProfile() {
+        return rtProfile;
+    }
+
+    public void setRtProfile(String rtProfile) {
+        this.rtProfile = rtProfile;
+    }
+    @Basic
+    @Column(name = "RANCHING_TYPE_PARENTID", nullable = true, insertable = true, updatable = true, length = 32)
+    public String getRtParentId() {
+        return rtParentId;
+    }
+
+    public void setRtParentId(String rtParentId) {
+        this.rtParentId = rtParentId;
+    }
+    @Basic
+    @Column(name = "RANCHING_TYPE_LEVEL", nullable = true, insertable = true, updatable = true, length = 11)
+    public int getRtLevel() {
+        return rtLevel;
+    }
+
+    public void setRtLevel(int rtLevel) {
+        this.rtLevel = rtLevel;
     }
 }

@@ -68,4 +68,22 @@ public class RanchingTypeController {
     public ApiResult deleteRanchingType(@PathVariable("id") String id) {
         return ranchingTypeService.deleteRanchingType(id);
     }
+    /**
+     * 检索畜牧父类
+     *
+     * @return
+     */
+    @RequestMapping(value = "/searchRanchingParentTypeList", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
+    public ApiResult searchRanchingParentTypeList() {
+        return ranchingTypeService.searchRanchingParentTypeList();
+    }
+    /**
+     * 检索畜牧类
+     *
+     * @return
+     */
+    @RequestMapping(value = "/searchRanchingType", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
+    public ApiResult searchRanchingType() {
+        return ranchingTypeService.queryRanchingTypeList();
+    }
 }

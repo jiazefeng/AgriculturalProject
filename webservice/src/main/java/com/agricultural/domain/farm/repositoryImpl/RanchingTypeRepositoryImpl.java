@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by maxrocky on 2016/08/12.
+ * Created by jiazefeng on 2016/08/12.
  */
 @Repository
 public class RanchingTypeRepositoryImpl extends BaseRepositoryImpl<RanchingType> implements RanchingTypeRepository {
@@ -62,6 +62,21 @@ public class RanchingTypeRepositoryImpl extends BaseRepositoryImpl<RanchingType>
     public List<RanchingType> searchRanchingType() {
         List<Object> paramas = new ArrayList<Object>();
         String sql = "FROM RanchingType as rt where rt.rtState = 1";
+        List<RanchingType> ranchingTypeList = this.findByQueryList(sql,paramas);
+        return ranchingTypeList;
+    }
+    @Override
+    public List<RanchingType> searchRanchingParentTypeList() {
+        List<Object> paramas = new ArrayList<Object>();
+        String sql = "FROM RanchingType as rt where rt.rtState = 1 AND rt.rtLevel = 1 ";
+        List<RanchingType> ranchingTypeList = this.findByQueryList(sql,paramas);
+        return ranchingTypeList;
+    }
+
+    @Override
+    public List<RanchingType> queryRanchingTypeList() {
+        List<Object> paramas = new ArrayList<Object>();
+        String sql = "FROM RanchingType as rt where rt.rtState = 1 AND rt.rtLevel <> 1 ";
         List<RanchingType> ranchingTypeList = this.findByQueryList(sql,paramas);
         return ranchingTypeList;
     }
