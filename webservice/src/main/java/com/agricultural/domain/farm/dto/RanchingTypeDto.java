@@ -10,6 +10,10 @@ public class RanchingTypeDto extends PageInfoTools {
     private String rtName;//类型名称
     private String rtNumber;//类型编号
     private String rtImge;//图片
+    private String rtProfile;//简介
+    private String rtParentId;
+    private int rtLevel;
+    private String rtParentName;
 
     public String getRtId() {
         return rtId;
@@ -41,5 +45,37 @@ public class RanchingTypeDto extends PageInfoTools {
 
     public void setRtImge(String rtImge) {
         this.rtImge = rtImge;
+    }
+
+    public String getRtProfile() {
+        return rtProfile;
+    }
+
+    public void setRtProfile(String rtProfile) {
+        this.rtProfile = rtProfile;
+    }
+
+    public String getRtParentId() {
+        return rtParentId;
+    }
+
+    public void setRtParentId(String rtParentId) {
+        this.rtParentId = rtParentId;
+    }
+
+    public int getRtLevel() {
+        return rtLevel;
+    }
+
+    public void setRtLevel(int rtLevel) {
+        this.rtLevel = rtLevel;
+    }
+
+    public String getRtParentName() {
+        return rtParentName;
+    }
+
+    public void setRtParentName(String rtParentName) {
+        this.rtParentName = rtParentName;
     }
 }

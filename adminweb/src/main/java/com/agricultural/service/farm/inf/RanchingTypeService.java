@@ -2,7 +2,10 @@ package com.agricultural.service.farm.inf;
 
 import com.agricultural.common.result.ApiResult;
 import com.agricultural.domain.farm.dto.RanchingTypeDto;
+import com.agricultural.domain.farm.dto.RanchingTypeInfoDTO;
 import com.agricultural.domain.farm.model.RanchingType;
+
+import java.util.List;
 
 /**
  * Created by jiazefeng on 2016/08/12.
@@ -54,4 +57,15 @@ public interface RanchingTypeService {
      * @return
      */
     public ApiResult searchRanchingTypeInfo(String id);
+
+    /**
+     * 检索畜牧父类
+     *
+     * @return
+     */
+    ApiResult searchRanchingParentTypeList();
+    List<RanchingTypeInfoDTO> searchRanchingTypeInfo();
+    List<RanchingTypeDto> searchRachingTypeDto();
+    List<RanchingTypeInfoDTO> queryRanchingTypeInf();
+    ApiResult queryRanchingTypeList();
 }
