@@ -133,12 +133,12 @@ public class BaseRepositoryImpl<PO extends BaseVO> implements BaseRepository<PO>
         return (PO) criteria.uniqueResult();
     }
 
-    protected int findByCriteriaForPageCount(Criterion... criterion) {
+    protected int findByCriteriaForPageCount() {
         Criteria criteria = getSession().createCriteria(getPersistentClass());
-        for (Criterion c : criterion) {
-            if (c != null)
-                criteria.add(c);
-        }
+//        for (Criterion c : criterion) {
+//            if (c != null)
+//                criteria.add(c);
+//        }
         criteria.setProjection(Projections.rowCount());
         return Integer.parseInt(criteria.uniqueResult().toString());
     }

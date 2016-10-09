@@ -97,6 +97,8 @@ public class RanchingTypeServiceImpl implements RanchingTypeService {
         return new SuccessApiResult(modelMap);
     }
 
+
+
     @Override
     public ApiResult searchRanchingTypeList() {
         ModelMap modelMap = new ModelMap();
