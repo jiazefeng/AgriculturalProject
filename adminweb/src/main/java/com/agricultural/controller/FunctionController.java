@@ -83,7 +83,7 @@ public class FunctionController {
     /**
      * 删除功能信息
      */
-    @RequestMapping(value = "/deleteFunction/{id}", produces = "application/json;charset=UTF-8", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteFunction/{id}", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public ApiResult deleteFunction(@PathVariable("id") String id) {
         return functionService.deleteFunction(id);
     }

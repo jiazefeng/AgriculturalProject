@@ -28,8 +28,8 @@ public class NewsRepositoryImpl extends BaseRepositoryImpl<News> implements News
     @Override
     public List<News> searchNewList() {
         List<Object> params = new ArrayList<Object>();
-        String hql = "from News as u where u.newTitle = ?";
-        params.add(1);
+        String hql = "from News";
+//        params.add(1);
         List<News> newInfoList = this.findByQueryList(hql,new PageInfoTools(),params);
         return newInfoList;
 
@@ -44,7 +44,7 @@ public class NewsRepositoryImpl extends BaseRepositoryImpl<News> implements News
     @Override
     public int searchNewsCount() {
         List<Criterion> sql = new ArrayList<Criterion>();
-        sql.add(Restrictions.eq("uState", 1));
+//        sql.add(Restrictions.eq("uState", 1));
         return this.findByCriteriaForPageCount(sql);
     }
 

@@ -24,8 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class NewsController {
     @Autowired
     private NewService newService;
-    @Autowired
-    private UserService userService;
+
     /**
      * 添加新闻
      */
@@ -39,5 +38,12 @@ public class NewsController {
     @RequestMapping(value = "/searchNewsInfoList", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public ApiResult searchNewsInfoList() {
         return newService.queryNewList();
+    }
+    /**
+     * 修改新闻列表
+     */
+    @RequestMapping(value="/updateNews",produces = "application/json;charset=UTF-8",method = RequestMethod.POST)
+    public  ApiResult updateNews(@RequestBody NewDTO newDTO) {
+        return null;
     }
 }
