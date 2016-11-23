@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by Administrator on 2016/9/18 0018.
  */
 @RestController
-@RequestMapping(value = "/news")
+@RequestMapping(value = "/newsInfo")
 public class NewsController {
     @Autowired
     private NewService newService;
