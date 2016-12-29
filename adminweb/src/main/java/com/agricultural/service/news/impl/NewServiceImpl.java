@@ -35,6 +35,8 @@ public class NewServiceImpl implements NewService{
             news.setNewTime(newDTO.getNewTime());
             news.setNewOther(newDTO.getNewOther());
             news.setNewContent(newDTO.getNewContent());
+            news.setNewIntro(newDTO.getNewIntro());
+            news.setOtherNew(newDTO.getNewLink());
             if(newsRepository.addNews(news)){
                 result.addAttribute("success", "添加成功");
             }else {
@@ -54,6 +56,8 @@ public class NewServiceImpl implements NewService{
                 newDTO.setNewTime(news.getNewTime());
                 newDTO.setNewOther(news.getNewOther());
                 newDTO.setNewContent(news.getNewContent());
+                newDTO.setNewIntro(news.getNewIntro());
+                newDTO.setNewLink(news.getOtherNew());
                 newDTOList.add(newDTO);
             }
         }
