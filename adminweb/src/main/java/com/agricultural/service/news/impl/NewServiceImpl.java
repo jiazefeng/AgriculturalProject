@@ -2,6 +2,7 @@ package com.agricultural.service.news.impl;
 
 import com.agricultural.common.result.ApiResult;
 import com.agricultural.common.result.SuccessApiResult;
+import com.agricultural.common.util.DateUtils;
 import com.agricultural.common.util.IdGen;
 import com.agricultural.domain.FunctionMenu.dto.FunctionMenuDTO;
 import com.agricultural.domain.FunctionMenu.model.FunctionMenu;
@@ -64,7 +65,7 @@ public class NewServiceImpl implements NewService{
         int count = newsRepository.searchNewsCount();
         ModelMap result = new ModelMap();
         result.addAttribute("count", count);
-        result.addAttribute("newsList", newsList);
+        result.addAttribute("newsList", newDTOList);
         return new SuccessApiResult(result);
     }
 

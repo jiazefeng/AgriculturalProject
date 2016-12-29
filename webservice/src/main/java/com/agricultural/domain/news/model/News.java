@@ -3,6 +3,7 @@ package com.agricultural.domain.news.model;
 import com.agricultural.hibernate.BaseVO;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 /**
@@ -10,19 +11,19 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "NEWS")
-public class  News extends BaseVO {
+public class News extends BaseVO {
     /**
      * 新闻id
      */
     private String newId;
     /**
-     *新闻标题
+     * 新闻标题
      */
     private String newTitle;
     /**
      * 新闻发布时间
      */
-    private String newTime;
+    private Date newTime;
     /**
      * 新闻作者
      */
@@ -34,11 +35,13 @@ public class  News extends BaseVO {
 
     /**
      * 新闻简介
+     *
      * @return
      */
     private String newIntro;
     /**
      * 其他相关新闻链接
+     *
      * @return
      */
     private String otherNew;
@@ -54,7 +57,7 @@ public class  News extends BaseVO {
     }
 
     @Basic
-    @Column(name = "NEW_TITLE", nullable = false, insertable = true, updatable = true, length = 32)
+    @Column(name = "NEW_TITLE", nullable = true, insertable = true, updatable = true, length = 100)
     public String getNewTitle() {
         return newTitle;
     }
@@ -64,17 +67,17 @@ public class  News extends BaseVO {
     }
 
     @Basic
-    @Column(name = "NEW_TIME", nullable = false, insertable = true, updatable = true, length = 32)
-    public String getNewTime() {
+    @Column(name = "NEW_TIME", nullable = true)
+    public Date getNewTime() {
         return newTime;
     }
 
-    public void setNewTime(String newTime) {
+    public void setNewTime(Date newTime) {
         this.newTime = newTime;
     }
 
     @Basic
-    @Column(name = "NEW_OTHER", nullable = false, insertable = true, updatable = true, length = 32)
+    @Column(name = "NEW_OTHER", nullable = true, insertable = true, updatable = true, length = 32)
     public String getNewOther() {
         return newOther;
     }
@@ -84,7 +87,7 @@ public class  News extends BaseVO {
     }
 
     @Basic
-    @Column(name = "NEW_CONTENT", nullable = false, insertable = true, updatable = true, length = 32)
+    @Column(name = "NEW_CONTENT", nullable = true, insertable = true, updatable = true, length = 500)
     public String getNewContent() {
         return newContent;
     }
@@ -94,7 +97,7 @@ public class  News extends BaseVO {
     }
 
     @Basic
-    @Column(name = "NEW_INTRO", nullable = false, insertable = true, updatable = true, length = 32)
+    @Column(name = "NEW_INTRO", nullable = true, insertable = true, updatable = true, length = 100)
     public String getNewIntro() {
         return newIntro;
     }
@@ -102,8 +105,9 @@ public class  News extends BaseVO {
     public void setNewIntro(String newIntro) {
         this.newIntro = newIntro;
     }
+
     @Basic
-    @Column(name = "OTHER_NEW", nullable = false, insertable = true, updatable = true, length = 32)
+    @Column(name = "OTHER_NEW", nullable = true, insertable = true, updatable = true, length = 100)
     public String getOtherNew() {
         return otherNew;
     }

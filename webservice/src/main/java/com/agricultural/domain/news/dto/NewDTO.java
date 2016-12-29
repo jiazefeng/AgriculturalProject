@@ -1,11 +1,13 @@
 package com.agricultural.domain.news.dto;
 
+import java.util.Date;
+
 /**
  * Created by Administrator on 2016/9/18 0018.
  */
-public class NewDTO{
+public class NewDTO {
     private String newTitle;
-    private String newTime;
+    private Date newTime;
     private String newOther;
     private String newContent;
     private String newIntro;
@@ -19,11 +21,11 @@ public class NewDTO{
         this.newTitle = newTitle;
     }
 
-    public String getNewTime() {
+    public Date getNewTime() {
         return newTime;
     }
 
-    public void setNewTime(String newTime) {
+    public void setNewTime(Date newTime) {
         this.newTime = newTime;
     }
 
