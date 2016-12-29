@@ -16,7 +16,7 @@ public interface NewService {
     /**
      * 查询新闻列表
      */
-    public ApiResult queryNewList();
+    public ApiResult searchNewsInfoList();
 
 
 }

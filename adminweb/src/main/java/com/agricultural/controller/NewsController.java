@@ -37,7 +37,7 @@ public class NewsController {
      */
     @RequestMapping(value = "/searchNewsInfoList", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public ApiResult searchNewsInfoList() {
-        return newService.queryNewList();
+        return newService.searchNewsInfoList();
     }
     /**
      * 修改新闻列表

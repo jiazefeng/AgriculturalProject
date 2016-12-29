@@ -44,7 +44,7 @@ public class NewServiceImpl implements NewService{
         return new SuccessApiResult(result);
     }
     @Override
-    public ApiResult queryNewList(){
+    public ApiResult searchNewsInfoList(){
         List<News> newsList = newsRepository.searchNewList();
         List<NewDTO> newDTOList = new ArrayList<NewDTO>();
         if (newsList != null && newsList.size() > 0) {

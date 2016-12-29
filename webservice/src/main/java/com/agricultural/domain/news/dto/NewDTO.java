@@ -3,11 +3,13 @@ package com.agricultural.domain.news.dto;
 /**
  * Created by Administrator on 2016/9/18 0018.
  */
-public class NewDTO {
+public class NewDTO{
     private String newTitle;
     private String newTime;
     private String newOther;
     private String newContent;
+    private String newIntro;
+    private String newLink;
 
     public String getNewTitle() {
         return newTitle;
@@ -39,5 +41,21 @@ public class NewDTO {
 
     public void setNewContent(String newContent) {
         this.newContent = newContent;
+    }
+
+    public String getNewIntro() {
+        return newIntro;
+    }
+
+    public void setNewIntro(String newIntro) {
+        this.newIntro = newIntro;
+    }
+
+    public String getNewLink() {
+        return newLink;
+    }
+
+    public void setNewLink(String newLink) {
+        this.newLink = newLink;
     }
 }

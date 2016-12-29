@@ -32,6 +32,17 @@ public class  News extends BaseVO {
      */
     private String newContent;
 
+    /**
+     * 新闻简介
+     * @return
+     */
+    private String newIntro;
+    /**
+     * 其他相关新闻链接
+     * @return
+     */
+    private String otherNew;
+
     @Id
     @Column(name = "NEW_ID", nullable = false, insertable = true, updatable = true, length = 32)
     public String getNewId() {
@@ -80,5 +91,24 @@ public class  News extends BaseVO {
 
     public void setNewContent(String newContent) {
         this.newContent = newContent;
+    }
+
+    @Basic
+    @Column(name = "NEW_INTRO", nullable = false, insertable = true, updatable = true, length = 32)
+    public String getNewIntro() {
+        return newIntro;
+    }
+
+    public void setNewIntro(String newIntro) {
+        this.newIntro = newIntro;
+    }
+    @Basic
+    @Column(name = "OTHER_NEW", nullable = false, insertable = true, updatable = true, length = 32)
+    public String getOtherNew() {
+        return otherNew;
+    }
+
+    public void setOtherNew(String otherNew) {
+        this.otherNew = otherNew;
     }
 }
