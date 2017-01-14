@@ -17,6 +17,8 @@ public interface NewService {
      * 查询新闻列表
      */
     public ApiResult searchNewsInfoList();
-
-
+/**
+ * 编辑新闻
+ */
+public  ApiResult editNew(NewDTO newDTO);
 }

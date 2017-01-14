@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by Administrator on 2016/9/18 0018.
  */
 public class NewDTO {
+    private  String id;
     private String newTitle;
     private Date newTime;
     private String newOther;
@@ -59,5 +60,13 @@ public class NewDTO {
 
     public void setNewLink(String newLink) {
         this.newLink = newLink;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
