@@ -4,9 +4,18 @@ package com.agricultural.domain.feed.dto;
  * Created by Talent on 2016/12/30.
  */
 public class FeedDto {
+    private String feedId;
     private String feedName;
     private String describe;
     private String type;
+
+    public String getFeedId() {
+        return feedId;
+    }
+
+    public void setFeedId(String feedId) {
+        this.feedId = feedId;
+    }
 
     public String getFeedName() {
         return feedName;
