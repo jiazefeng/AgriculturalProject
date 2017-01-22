@@ -26,7 +26,34 @@ public class FeedRepositoryImpl extends BaseRepositoryImpl<FeedInfo> implements 
 
     @Override
     public int getCount() {
-//        List<Criterion> sql = new ArrayList<Criterion>();
-        return this.findByCriteriaForPageCount();
+        List<Criterion> sql = new ArrayList<Criterion>();
+        return this.findByCriteriaForPageCount(sql);
+    }
+
+    @Override
+    public boolean addFeed(FeedInfo feedInfo) {
+        this.save(feedInfo);
+        return true;
+    }
+
+    @Override
+    public FeedInfo searchFeedById(String id) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "FROM FeedInfo as m where m.feedId=? ";
+        params.add(id);
+
+        return (FeedInfo) this.findObjectByQueryResult(hql, params);
+    }
+
+    @Override
+    public boolean editFeed(FeedInfo feedInfo) {
+        this.update(feedInfo);
+        return true;
+    }
+
+    @Override
+    public boolean deleteFeed(FeedInfo feedInfo) {
+        this.deletePhysical(feedInfo);
+        return true;
     }
 }
