@@ -16,12 +16,20 @@ public interface FeedService {
     ApiResult getFeedInfoList();
 
     /**
+     * 按条件查询
+     *
+     * @param feedDto
+     * @return
+     */
+    ApiResult getFeedInfoList(FeedDto feedDto);
+
+    /**
      * 添加 饲料
      *
      * @param feedDto
      * @return
      */
-    ApiResult addFeed(FeedDto feedDto,UserInfo userInfos);
+    ApiResult addFeed(FeedDto feedDto, UserInfo userInfos);
 
     /**
      * 根据Id 检索饲料信息
@@ -37,12 +45,15 @@ public interface FeedService {
      * @param feedDto
      * @return
      */
-    ApiResult editFeed(FeedDto feedDto,UserInfo userInfos);
+    ApiResult editFeed(FeedDto feedDto, UserInfo userInfos);
 
     /**
      * 删除
+     *
      * @param id
      * @return
      */
     ApiResult deleteFunction(String id);
+
+
 }

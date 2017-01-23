@@ -34,7 +34,18 @@ public class FeedServiceImpl implements FeedService {
     }
 
     @Override
-    public ApiResult addFeed(FeedDto feedDto,UserInfo userInfos) {
+    public ApiResult getFeedInfoList(FeedDto feedDto) {
+        int count = feedRepository.getCount();
+        List<FeedInfo> feedInfoList = feedRepository.getFeedInfoList(feedDto.getIndex());
+        ModelMap result = new ModelMap();
+        result.addAttribute("count", count);
+        result.addAttribute("page", feedDto.getIndex());
+        result.addAttribute("feedInfoList", feedInfoList);
+        return new SuccessApiResult(result);
+    }
+
+    @Override
+    public ApiResult addFeed(FeedDto feedDto, UserInfo userInfos) {
         ModelMap modelMap = new ModelMap();
         try {
             if (feedDto != null) {
@@ -78,7 +89,7 @@ public class FeedServiceImpl implements FeedService {
     }
 
     @Override
-    public ApiResult editFeed(FeedDto feedDto,UserInfo userInfos) {
+    public ApiResult editFeed(FeedDto feedDto, UserInfo userInfos) {
         ModelMap result = new ModelMap();
         try {
             FeedInfo feedInfo = feedRepository.searchFeedById(feedDto.getFeedId());

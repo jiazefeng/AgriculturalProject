@@ -1,9 +1,11 @@
 package com.agricultural.domain.feed.dto;
 
+import com.agricultural.page.PageInfoTools;
+
 /**
  * Created by Talent on 2016/12/30.
  */
-public class FeedDto {
+public class FeedDto extends PageInfoTools{
     private String feedId;
     private String feedName;
     private String describe;
