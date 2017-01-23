@@ -25,6 +25,14 @@ public class FeedRepositoryImpl extends BaseRepositoryImpl<FeedInfo> implements 
     }
 
     @Override
+    public List<FeedInfo> getFeedInfoList(int index) {
+        List<Object> params = new ArrayList<Object>();
+        String hql = "from FeedInfo as f ";
+        List<FeedInfo> feedInfoList = this.findByQueryList(hql,new PageInfoTools(index,10),params);
+        return feedInfoList;
+    }
+
+    @Override
     public int getCount() {
         List<Criterion> sql = new ArrayList<Criterion>();
         return this.findByCriteriaForPageCount(sql);

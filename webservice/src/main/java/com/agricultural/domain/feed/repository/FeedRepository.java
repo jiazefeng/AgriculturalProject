@@ -17,6 +17,14 @@ public interface FeedRepository extends BaseRepository<FeedInfo> {
     List<FeedInfo> getFeedInfoList();
 
     /**
+     * 按条件查询
+     *
+     * @param index
+     * @return
+     */
+    List<FeedInfo> getFeedInfoList(int index);
+
+    /**
      * 总条数
      */
     int getCount();
@@ -46,8 +54,11 @@ public interface FeedRepository extends BaseRepository<FeedInfo> {
 
     /**
      * 删除
+     *
      * @param feedInfo
      * @return
      */
     boolean deleteFeed(FeedInfo feedInfo);
+
+
 }

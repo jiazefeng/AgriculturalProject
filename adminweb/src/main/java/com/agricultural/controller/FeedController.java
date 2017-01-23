@@ -37,6 +37,19 @@ public class FeedController {
         return feedService.getFeedInfoList();
     }
     /**
+     * 按条件查询列表
+     */
+    @RequestMapping(value = "/getFeedInfoListByItem", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
+    public ApiResult getFeedInfoListByItem(@CookieValue(value = "vestaToken", required = false) String tokenId,@RequestBody FeedDto feedDto) {
+        UserInfo userInfos = userService.GetUserInfoByTokenValue(tokenId);
+        ModelMap result = new ModelMap();
+        if (userInfos == null) {
+            result.addAttribute("error", "当前未登录！");
+            return new SuccessApiResult(result);
+        }
+        return feedService.getFeedInfoList(feedDto);
+    }
+    /**
      * 根据id查询功能信息
      */
     @RequestMapping(value = "/searchFeedById/{id}", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
