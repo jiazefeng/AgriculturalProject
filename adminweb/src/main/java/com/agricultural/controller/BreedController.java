@@ -47,7 +47,7 @@ public class BreedController {
 
 
     /**
-     * 根据id查询功能信息
+     * 根据id查询信息
      */
     @RequestMapping(value = "/searchBreedById/{id}", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public ApiResult searchBreedById(@PathVariable("id") String id) {
@@ -55,7 +55,7 @@ public class BreedController {
     }
 
     /**
-     * 添加功能
+     * 添加信息
      *
      * @return
      */
@@ -71,7 +71,7 @@ public class BreedController {
     }
 
     /**
-     * 编辑功能
+     * 编辑信息
      *
      * @return
      */
@@ -87,7 +87,7 @@ public class BreedController {
     }
 
     /**
-     * 删除功能信息
+     * 删除信息
      */
     @RequestMapping(value = "/deleteBreed/{id}", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public ApiResult deleteBreed(@PathVariable("id") String id) {
