@@ -33,7 +33,7 @@ public class FileUploadController {
         String fileName = "";
         String realPaht = req.getSession().getServletContext().getRealPath("/");
 //        String returnPath = "http://admapi.robot.maxrocky.com/static/"+imgType+"/";
-        String returnPath = "http://localhost:8088/static/"+imgType+"/";
+        String returnPath = "http://localhost:8080/static/"+imgType+"/";
             try {
             mReq = (MultipartHttpServletRequest)req;
             file = mReq.getFile("file");
